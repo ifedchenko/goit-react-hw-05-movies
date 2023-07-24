@@ -34,7 +34,7 @@ const Movies = () => {
     }
 
     fetchMovies();
-  }, [searchRequest]);
+  }, [error, searchParams, searchRequest]);
 
   function onSubmit(value) {
     setSearchParams({ query: `${value}` });
