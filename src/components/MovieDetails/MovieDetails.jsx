@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState ,Suspense} from 'react';
 import {
   NavLink,
   Outlet,
@@ -37,28 +37,31 @@ const MovieDetails = () => {
       .finally(() => setIsLoaderShown(false));
   }, [movieId]);
 
+  const displayErrorMessage = () => {
+    if (error) {
+      return <div>{error}</div>;
+    }
+    return null;
+  };
+
   return (
     <div className={css.movieDetails}>
       <button onClick={handleClick} className={css.backButton}>
         Go back
       </button>
-      {/* {movie && <h2>Movie Review</h2>} */}
       {isLoaderShown && <div>Loading ...</div>}
-      {error && <div>{error}</div>}
+      {displayErrorMessage()}
       {movie && (
         <div>
           {movie.poster_path ? (
-            <img
-              src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
-              alt={movie.title}
-            />
+            <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
           ) : (
             <img src={img} width="200" alt="File not found" />
           )}
           <h3>{movie.title}</h3>
           <p>({getYear()})</p>
           <p>User Score: {Math.round(movie.popularity)}%</p>
-          <div className="movie_overview">
+          <div className={css.movieOverview}>
             <h3>Overview</h3>
             <p>{movie.overview}</p>
           </div>
@@ -87,9 +90,11 @@ const MovieDetails = () => {
             </NavLink>
             <hr />
           </div>
-          <Outlet />
         </>
       )}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
