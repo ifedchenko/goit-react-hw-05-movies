@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
-import { Route, Routes,Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import Navigation from './Navigation/Navigation';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Home = lazy(() => import('pages/Home'));
 const Movies = lazy(() => import('pages/Movies'));
@@ -12,7 +13,13 @@ export const App = () => {
   return (
     <>
       <Navigation />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense
+        fallback={
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <CircularProgress />
+          </div>
+        }
+      >
         <Routes>
           <Route index element={<Home />}></Route>
           <Route path="/movies" element={<Movies />}></Route>
