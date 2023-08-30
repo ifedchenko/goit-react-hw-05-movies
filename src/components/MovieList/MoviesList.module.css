@@ -2,3 +2,12 @@
   list-style: none;
   margin-bottom: 15px;
 }
+.trendingMovieItem a {
+  display: flex;
+  flex-direction: column;
+}
+
+.trendingMovieList {
+  display: flex;
+  flex-wrap: wrap;
+}
