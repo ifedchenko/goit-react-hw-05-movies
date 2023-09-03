@@ -25,7 +25,7 @@ const Trendings = () => {
 
   return (
     <div className={css.trendings}>
-      <h1>Trendings today</h1>
+      <h1 className={css.title}>Trendings today</h1>
       {isLoaderShown && (
         <div className={css.trendingsLoader}>
           <CircularProgress />
