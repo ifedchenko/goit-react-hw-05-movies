@@ -1,4 +1,5 @@
-import React, { useEffect, useState ,Suspense} from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
+import Button from '@mui/material/Button';
 import {
   NavLink,
   Outlet,
@@ -46,15 +47,26 @@ const MovieDetails = () => {
 
   return (
     <div className={css.movieDetails}>
-      <button onClick={handleClick} className={css.backButton}>
+      <Button
+        variant="outlined"
+        onClick={handleClick}
+        size="large"
+        sx={{ marginTop: 2.5, marginBottom: 2.5 }}
+      >
         Go back
-      </button>
+      </Button>
+      {/* <button onClick={handleClick} className={css.backButton}>
+        Go back
+      </button> */}
       {isLoaderShown && <div>Loading ...</div>}
       {displayErrorMessage()}
       {movie && (
         <div>
           {movie.poster_path ? (
-            <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
+            <img
+              src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+              alt={movie.title}
+            />
           ) : (
             <img src={img} width="200" alt="File not found" />
           )}
