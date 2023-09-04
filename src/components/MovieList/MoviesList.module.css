@@ -10,7 +10,8 @@
 .trendingMovieList {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 18px;
   justify-content: center;
   padding-left: 0;
+  max-width: 1200px;
 }

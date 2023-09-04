@@ -32,7 +32,7 @@ const Trendings = () => {
         </div>
       )}
       {!isLoaderShown && (
-        <div>
+        <div className={css.moviesBlock}>
           <MovieList movies={movies} />
         </div>
       )}

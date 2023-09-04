@@ -11,26 +11,26 @@ import css from './Navigation.module.css';
 
 const Navigation = () => (
   <AppBar position="static">
-    <header className={css.header}>
-      <div className={css.container}>
-        <nav className={css.navigation}>
-          <NavLink
-            to="/"
-            className={css.link}
-            // style={({ isActive }) => (isActive ? activeClassName : undefined)}
-          >
-            <Button variant="contained">Home</Button>
-          </NavLink>
-          <NavLink
-            to="/movies"
-            className={css.link}
-            // style={({ isActive }) => (isActive ? activeClassName : undefined)}
-          >
-            <Button variant="contained">Movies</Button>
-          </NavLink>
-        </nav>
-      </div>
-    </header>
+    {/* <header className={css.header}> */}
+    <div className={css.container}>
+      <nav className={css.navigation}>
+        <NavLink
+          to="/"
+          className={css.link}
+          // style={({ isActive }) => (isActive ? activeClassName : undefined)}
+        >
+          <Button variant="contained">Home</Button>
+        </NavLink>
+        <NavLink
+          to="/movies"
+          className={css.link}
+          // style={({ isActive }) => (isActive ? activeClassName : undefined)}
+        >
+          <Button variant="contained">Movies</Button>
+        </NavLink>
+      </nav>
+    </div>
+    {/* </header> */}
   </AppBar>
 );
 
